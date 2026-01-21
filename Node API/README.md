@@ -38,6 +38,39 @@ Live version:
 👉 https://wild-horizons-api-8o6q.onrender.com/
 
 (Sometimes Render free tier may take 10–30 seconds to wake up on first visit)
+## API Testing (Manual Checks)
+
+You can test the API endpoints directly in your browser to confirm everything is working. These URLs return JSON data:
+
+1. **All places**  
+   [https://wild-horizons-api-8o6q.onrender.com/api](https://wild-horizons-api-8o6q.onrender.com/api)  
+   → Should return the full list of natural wonders as JSON.
+
+2. **Asia only**  
+   [https://wild-horizons-api-8o6q.onrender.com/api/continent/Asia](https://wild-horizons-api-8o6q.onrender.com/api/continent/Asia)  
+   → Should return only places located in Asia.
+
+3. **Asia + open to public**  
+   [https://wild-horizons-api-8o6q.onrender.com/api/continent/Asia?is_open_to_public=true](https://wild-horizons-api-8o6q.onrender.com/api/continent/Asia?is_open_to_public=true)  
+   → Should return only public-access places in Asia.
+
+4. **Pakistan only**  
+   [https://wild-horizons-api-8o6q.onrender.com/api/country/Pakistan](https://wild-horizons-api-8o6q.onrender.com/api/country/Pakistan)  
+   → Should return only places located in Pakistan.
+
+**Tip:** If the Render service is in sleep mode (free tier), the first request might take 10–30 seconds to wake up. Subsequent requests will be fast.
+
+## API Endpoints
+
+| Method | Endpoint                          | Description                              |
+|--------|-----------------------------------|------------------------------------------|
+| GET    | `/api`                            | Get all places (with optional query filters) |
+| GET    | `/api/continent/:continent`       | Filter by continent                      |
+| GET    | `/api/country/:country`           | Filter by country                        |
+
+### Quick Manual Tests
+
+[the block above]
 
 ## Installation & Local Development
 
