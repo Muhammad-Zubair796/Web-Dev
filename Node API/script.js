@@ -1,45 +1,77 @@
 const searchBtn = document.getElementById('searchBtn');
 const resultsContainer = document.getElementById('resultsContainer');
 
-searchBtn.addEventListener('click', async () => {
-    // 1. Get values from the inputs
-    const continent = document.getElementById('continentSelect').value;
-    const country = document.getElementById('countryInput').value;
-    const isPublic = document.getElementById('publicOnly').checked;
+// Optional: show a loading message while fetching
+function showLoading() {
+    resultsContainer.innerHTML = '<p class="loading">Loading places... 🌍</p>';
+}
 
-    // 2. Build the long URL (The Query String)
-let url = `https://wild-horizons-api-8o6q.onrender.com/api`;
-    if (continent) url += `continent=${continent}&`;
-    if (country) url += `country=${country}&`;
-    if (isPublic) url += `is_open_to_public=true`;
+function showError(message) {
+    resultsContainer.innerHTML = `<p class="error">${message}</p>`;
+}
+
+searchBtn.addEventListener('click', async () => {
+    const continent = document.getElementById('continentSelect').value.trim();
+    const country   = document.getElementById('countryInput').value.trim();
+    const isPublic  = document.getElementById('publicOnly').checked;
+
+    // Build the correct URL based on what the backend supports
+    let url = '/api';
+
+    // Continent has priority over country (you can change logic if needed)
+    if (continent) {
+        url = `/api/continent/${encodeURIComponent(continent)}`;
+    } else if (country) {
+        url = `/api/country/${encodeURIComponent(country)}`;
+    }
+
+    // Add public filter as query parameter (backend already supports query params)
+    if (isPublic) {
+        url += '?is_open_to_public=true';
+    }
+
+    console.log('Fetching from:', url); // ← helpful for debugging
 
     try {
-        // 3. Fetch from your server
+        showLoading();
+
         const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`Server error: ${response.status} ${response.statusText}`);
+        }
+
         const data = await response.json();
 
-        // 4. Clear old results
         resultsContainer.innerHTML = '';
 
-        // 5. Create elements for each place
+        if (!data || data.length === 0) {
+            resultsContainer.innerHTML = '<p>No places found matching your selection.</p>';
+            return;
+        }
+
+        // Display each place as a card
         data.forEach(place => {
             const card = document.createElement('div');
             card.className = 'card';
-            
-            // Note how we dig into details[0] and details[1]!
+
+            // Safely access details (with fallback if structure changes)
+            const description = place.details?.[1]?.description || 'No description available';
+            const funFact     = place.details?.[0]?.fun_fact     || 'No fun fact available';
+
             card.innerHTML = `
-                <span class="tag">${place.continent}</span>
+                <span class="tag">${place.continent || 'Unknown'}</span>
                 <h3>${place.name}</h3>
                 <p><strong>Location:</strong> ${place.location}, ${place.country}</p>
-                <p>${place.details[1].description}</p>
-                <span class="fun-fact">💡 ${place.details[0].fun_fact}</span>
+                <p>${description}</p>
+                <span class="fun-fact">💡 ${funFact}</span>
             `;
+
             resultsContainer.appendChild(card);
         });
 
     } catch (error) {
-        resultsContainer.innerHTML = "<p>Error connecting to server. Is it running?</p>";
+        console.error('Fetch failed:', error);
+        showError(`Could not load places: ${error.message}.<br>Please check your internet or try again later.`);
     }
-
 });
-
