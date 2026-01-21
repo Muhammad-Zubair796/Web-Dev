@@ -3,7 +3,7 @@ const resultsContainer = document.getElementById('resultsContainer');
 
 // Optional: show a loading message while fetching
 function showLoading() {
-    resultsContainer.innerHTML = '<p class="loading">Loading places... 🌍</p>';
+    resultsContainer.innerHTML = '<p class="loading">Loading places... </p>';
 }
 
 function showError(message) {
@@ -64,7 +64,7 @@ searchBtn.addEventListener('click', async () => {
                 <h3>${place.name}</h3>
                 <p><strong>Location:</strong> ${place.location}, ${place.country}</p>
                 <p>${description}</p>
-                <span class="fun-fact">💡 ${funFact}</span>
+                <span class="fun-fact"> ${funFact}</span>
             `;
 
             resultsContainer.appendChild(card);
@@ -75,3 +75,4 @@ searchBtn.addEventListener('click', async () => {
         showError(`Could not load places: ${error.message}.<br>Please check your internet or try again later.`);
     }
 });
+
