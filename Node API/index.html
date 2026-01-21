@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wild Horizons Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>🌍 Wild Horizons Explorer</h1>
+
+    <div class="search-panel">
+        <select id="continentSelect">
+            <option value="">All Continents</option>
+            <option value="Asia">Asia</option>
+            <option value="Africa">Africa</option>
+            <option value="Europe">Europe</option>
+            <option value="North America">North America</option>
+            <option value="South America">South America</option>
+            <option value="Oceania">Oceania</option>
+        </select>
+
+        <input type="text" id="countryInput" placeholder="Type a country (e.g. Pakistan)">
+
+        <label>
+            <input type="checkbox" id="publicOnly"> Open to Public
+        </label>
+
+        <button id="searchBtn">Find Places</button>
+    </div>
+
+    <div id="resultsContainer" class="results-grid"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
