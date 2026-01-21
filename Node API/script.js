@@ -8,7 +8,7 @@ searchBtn.addEventListener('click', async () => {
     const isPublic = document.getElementById('publicOnly').checked;
 
     // 2. Build the long URL (The Query String)
-    let url = `https://wild-horizons-api-8o6q.onrender.com/api?`;    
+let url = `https://wild-horizons-api-8o6q.onrender.com/api`;
     if (continent) url += `continent=${continent}&`;
     if (country) url += `country=${country}&`;
     if (isPublic) url += `is_open_to_public=true`;
@@ -42,3 +42,4 @@ searchBtn.addEventListener('click', async () => {
     }
 
 });
+
