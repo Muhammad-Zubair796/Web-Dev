@@ -4,8 +4,7 @@ import { sendJSONResponse } from './utils/sendJSONResponse.js';
 import { getDataByPathParams } from './utils/getDataByPathParams.js';
 import { getDataByQueryParam } from './utils/getDataByQuerryParam.js'; // Import your new tool!
 
-const PORT = 8000;
-
+const PORT = process.env.PORT || 8000;
 const server = http.createServer(async (req, res) => {
     const urlObject = new URL(req.url, `http://${req.headers.host}`);
     const queryObject = Object.fromEntries(urlObject.searchParams); // The search settings
@@ -36,5 +35,6 @@ const server = http.createServer(async (req, res) => {
         sendJSONResponse(res, 404, { message: 'Route not found' });
     }
 }); 
+
 
 server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
