@@ -7,7 +7,7 @@ const resultsContainer = document.getElementById('resultsContainer');
 // Helper functions
 // ────────────────────────────────────────────────
 function showLoading() {
-    resultsContainer.innerHTML = '<p class="loading">Loading amazing places... 🌍</p>';
+    resultsContainer.innerHTML = '<p class="loading">Loading amazing places... </p>';
 }
 
 function showError(message) {
@@ -96,7 +96,7 @@ searchBtn.addEventListener('click', async () => {
                 <h3>${place.name}</h3>
                 <p><strong>Location:</strong> ${place.location}, ${place.country}</p>
                 <p>${desc}</p>
-                <span class="fun-fact">💡 ${fact}</span>
+                <span class="fun-fact"> ${fact}</span>
             `;
 
             resultsContainer.appendChild(card);
@@ -107,3 +107,4 @@ searchBtn.addEventListener('click', async () => {
         showError(`Failed to load places: ${error.message}.<br>Please try again or check your connection.`);
     }
 });
+
