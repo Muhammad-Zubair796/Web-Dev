@@ -1,6 +1,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-22.x-green?logo=node.js&logoColor=white)](https://nodejs.org)
 [![Render](https://img.shields.io/badge/Deployed%20on-Render-46a2f1?logo=render&logoColor=white)](https://render.com)
-Markdown# Wild Horizons 🌍
+Markdown
+# Wild Horizons 🌍
 
 A modern, responsive web application for discovering breathtaking natural wonders from around the world.  
 Filter places by continent, country, or whether they are open to the public — and explore detailed descriptions and fun facts.
