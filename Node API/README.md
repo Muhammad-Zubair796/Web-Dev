@@ -6,7 +6,7 @@ Markdown
 A modern, responsive web application for discovering breathtaking natural wonders from around the world.  
 Filter places by continent, country, or whether they are open to the public — and explore detailed descriptions and fun facts.
 
-![Wild Horizons Screenshot](https://via.placeholder.com/1200x600.png?text=Wild+Horizons+Screenshot)  
+![Wild Horizons Screenshot](Capture.PNG)  
 *(Replace this with a real screenshot of your app once deployed)*
 
 ## Features
