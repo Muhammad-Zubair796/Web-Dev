@@ -15,10 +15,10 @@ Experience the hauntings here:
 ---
 
 ## 📸 App Screenshots
-| Home & Sightings | Live News Feed |
+| Home  | Sightings |
 |---|---|
 | <img src="1.PNG" width="400"> | <img src="2.PNG" width="400"> |
-| **Upload Sighting** | **Mobile View** |
+| **Upload Sighting** | **Live News Feed** |
 | <img src="3.PNG" width="400"> | <img src="4.PNG" width="400"> |
 
 ---
@@ -86,6 +86,6 @@ Go to `http://localhost:8000`
 ---
 
 **Developed with ❤️ by Zubair**
-```
+
 
 
