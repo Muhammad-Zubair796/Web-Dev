@@ -1,4 +1,3 @@
-```markdown
 # 👻 From The Other Side: Ghost Tracker & Live News
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Muhammad-Zubair796/Web-Dev)
